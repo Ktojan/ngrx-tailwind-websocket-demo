@@ -1,5 +1,6 @@
 # ngrx-tailwind-websocket-demo
 This demo front-end SPA was written on Angular 16. Consists of 3 parts: websocket + chart.js currency streamer, chat on TailwindCSS, and Products list with NGRX store and dynamic routing concepts.
+[Live demo on Vercel](https://ngrx-tailwind-websocket-angular.vercel.app)
 
 # Installing
 In order to install use "npm install --legacy-peer-deps" (yeah, versions...)
