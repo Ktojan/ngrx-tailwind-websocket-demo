@@ -1,36 +1,38 @@
 <div class="card">
   <div class="header">
     <div>
-      <h2 class="title">Products</h2>
+      <h2 class="title drgble">Products 
+         <span class="material-symbols-outlined"> arrows_output</span><br>
+      <span style="font-size: 14px">(bit crazy page)</span></h2>
     </div>
-    <button [routerLink]="['/products', 0]" class="group relative inline-block focus:outline-none focus:ring">
+    <button id="add_button" [routerLink]="['/products', 0]" class="group relative inline-block focus:outline-none focus:ring">
       <span
         class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-yellow-300 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
       <span
-        class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75">
-        Add product
+        class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold tracking-widest text-black group-active:text-opacity-75">
+        Add product<br> (first catch)
       </span>
     </button>
   </div>
 
-  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-lg">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-lg" id="pr_table">
     <thead class="ltr:text-left rtl:text-right text-3xl">
       <tr>
-        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Product</th>
-        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Price</th>
-        <th *ngIf="showProductCode" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Product code</th>
-        <th class="px-4 py-2"></th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 drgble">Product  <span class="material-symbols-outlined"> arrows_output</span></th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 drgble">Price  <span class="material-symbols-outlined"> arrows_output</span></th>
+        <th *ngIf="showProductCode" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 drgble">Product code</th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 drgble">Actions  <span class="material-symbols-outlined"> arrows_output</span></th>
       </tr>
     </thead>
 
     <tbody class="divide-y divide-gray-200">
       <tr *ngFor="let product of products">
-        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ product.name }}</td>
-        <td class="whitespace-nowrap px-4 py-2 text-gray-700">{{ product.price | currency }}</td>
-        <td *ngIf="showProductCode" class="whitespace-nowrap px-4 py-2 text-gray-700">{{ product.id }}</td>
-        <td class="whitespace-nowrap px-4 py-2">
+        <td class="product-cell whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ product.name }}</td>
+        <td class="currency-cell whitespace-nowrap px-4 py-2 text-gray-700">{{ product.price | currency }}</td>
+        <td *ngIf="showProductCode" class="pr-code-cell whitespace-nowrap px-4 py-2 text-gray-700">{{ product.id }}</td>
+        <td class="edit-cell relative whitespace-nowrap px-4 py-2">
           <button [routerLink]="['/products', product.id]"
-          class="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500">
+          class="editproduct group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500">
           <span class="absolute -start-full transition-all group-hover:start-4">
             <svg class="size-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
@@ -44,7 +46,7 @@
       <tr class="h-24">
         <td class="whitespace-nowrap px-4 py-2 text-black font-bold">TOTAL:</td>
         <td class="whitespace-nowrap px-4 py-2 text-black font-bold"> {{ this.total | currency }}</td>
-        <td>
+        <td id="showcode">
           <input id="showProductCode" type="checkbox" (change)="toggleProductCode.emit()" [checked]="showProductCode"
             class="size-4 rounded border-gray-300 cursor-pointer" />
           <label for="showProductCode"><b>Show Product Code</b></label>
