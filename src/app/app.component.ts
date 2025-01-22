@@ -15,7 +15,7 @@ export class AppComponent {
   navigationList = [
     { link: '/websocket', label: 'Websocket -> Chart.js'},
     { link: '/chat', label: 'Chat with comments'},
-    { link: '/products', label: 'Products list (NGRX)'},
+    { link: '/products', label: 'Products list (NGRX + jQuery)'},
    ]
   keyCodeChunk = '';
   keyFeatures = '';

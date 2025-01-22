@@ -68,6 +68,13 @@ export const CODE_CHUNCKS = {
     });
   }
   ................
+    ($(".drgble") as any).draggable();
+      $(".product-cell").on("mouseenter", function() { 
+        ($(this) as any).effect( "highlight", { color: '#1F2937'} );
+        changePricesRotate();
+      })
+  
+  ................
   <div *ngIf="(loading$ | async) === false; else loadingElement">
   <div class="container">
     <app-products-list
@@ -191,7 +198,7 @@ export const CODE_CHUNCKS = {
 
 export const KEY_FEATURES = {
   chat: `TailwindCSS, NGRX for login`,
-  products: `NGRX for login, products list`,
+  products: `NGRX for login, jQuery`,
   "products/": ``,
   websocket: `Websocket, Chart.js`
 }
